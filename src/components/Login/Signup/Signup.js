@@ -22,7 +22,6 @@ const Signup = () => {
                 <div className="mt-4">
                     <div className="flex items-center justify-between">
                         <label htmlFor="password" className="block text-sm text-gray-800 dark:text-gray-200">Password</label>
-                        <p className="cursor-pointer text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</p>
                     </div>
 
                     <input type="password"

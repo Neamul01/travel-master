@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
 
     return (
-        <nav className="bg-white shadow dark:bg-gray-800">
+        <nav className="bg-transparent -z-10">
             <div className="container px-6 py-3 mx-auto">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                     <div className="flex items-center justify-between">
