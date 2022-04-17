@@ -1,36 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import auth from '../../../firebase.init'
 import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const [signInWithFacebook, user, loading, facebookError] = useSignInWithFacebook(auth);
+    const [signInWithFacebook, user, facebookLoading, facebookError] = useSignInWithFacebook(auth);
+    const [loading, setLoading] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
 
-    const from = location.state?.from?.pahtname || '/';
+    const from = location.state?.from?.pathname || '/';
 
     if (user || googleUser) {
-        navigate(from, { replace: true })
+        return navigate(from, { replace: true })
     }
 
-    if (loading || googleLoading) {
-        console.log('loading')
-    }
+    // if (googleError) {
+    //     return setLoading("loading")
+    // }
 
+    if (googleError) {
+        if (googleError?.message === 'Firebase: Error (auth/popup-closed-by-user.)') {
+            return setError('Please Log In')
+        }
+        else {
+            return console.log('not working')
+        }
+    }
     const handleGoogleSignin = () => {
-        signInWithGoogle()
+        return signInWithGoogle()
     }
 
     const handleFacebookLonin = () => {
-        signInWithFacebook()
+        return signInWithFacebook()
     }
+    console.log(googleError)
+    console.log(error)
 
     return (
         <div>
+            {/* <p>{loading}</p> */}
             <div className="flex items-center justify-between mt-4">
                 <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
@@ -52,6 +66,7 @@ const SocialLogin = () => {
                     <FacebookIcon className='text-gray-700' style={{ fontSize: '1.8rem' }} />
                 </button>
             </div>
+            <p><small>Error: {error.message}</small></p>
 
         </div>
     );

@@ -18,7 +18,7 @@ const Service = ({ service }) => {
 
             <div className='flex justify-between items-center w-full px-4'>
                 <p className='text-gray-800 font-bold'>Price: ${price}</p>
-                <Link to={`/checkout/${id}`} className="  -mx-1 text-sm py-2 px-4 rounded-md text-gray-200 bg-blue-500 hover:bg-blue-700 capitalize transition-colors duration-200 transform dark:text-blue-400 hover:underline hover:text-gray-100 dark:hover:text-blue-500">
+                <Link to={`/checkout`} className="  -mx-1 text-sm py-2 px-4 rounded-md text-gray-200 bg-blue-500 hover:bg-blue-700 capitalize transition-colors duration-200 transform dark:text-blue-400 hover:underline hover:text-gray-100 dark:hover:text-blue-500">
                     <span className="mx-1">Checkout</span>
                 </Link>
             </div>
