@@ -3,13 +3,18 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import auth from '../../../firebase.init'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithFacebook, user, loading, facebookError] = useSignInWithFacebook(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    if (user) {
-        console.log(user)
+    const from = location.state?.from?.pahtname || '/';
+
+    if (user || googleUser) {
+        navigate(from, { replace: true })
     }
 
     const handleGoogleSignin = () => {
