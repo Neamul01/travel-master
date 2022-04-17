@@ -32,7 +32,7 @@ const Tours = () => {
 
                         <div className=' absolute bottom-6 text-center'>
                             <h1 className="mt-4 text-2xl font-semibold text-white capitalize dark:text-white">Sundarban</h1>
-                            <p class="mt-2 text-gray-300 capitalize dark:text-gray-300">Last week</p>
+                            <p className="mt-2 text-gray-300 capitalize dark:text-gray-300">Last week</p>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@ const Tours = () => {
 
                         <div className=' absolute bottom-6 text-center'>
                             <h1 className="mt-4 text-2xl font-semibold text-white capitalize dark:text-white">Bandarban</h1>
-                            <p class="mt-2 text-gray-300 capitalize dark:text-gray-300">Before Last two week</p>
+                            <p className="mt-2 text-gray-300 capitalize dark:text-gray-300">Before Last two week</p>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@ const Tours = () => {
 
                         <div className=' absolute bottom-6 text-center'>
                             <h1 className="mt-4 text-2xl font-semibold text-white capitalize dark:text-white">Cox's Bazar</h1>
-                            <p class="mt-2 text-gray-300 capitalize dark:text-gray-300">Last Month</p>
+                            <p className="mt-2 text-gray-300 capitalize dark:text-gray-300">Last Month</p>
                         </div>
                     </div>
                 </div>
