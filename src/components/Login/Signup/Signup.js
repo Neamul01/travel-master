@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Signup = () => {
     return (
-        <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
+        <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-24">
             <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Sign Up</h1>
 
             <form className="mt-6">

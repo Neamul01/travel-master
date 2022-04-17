@@ -4,7 +4,7 @@ import me from '../../images/Noman.jpg'
 const About = () => {
     return (
 
-        <section className="bg-white mt-12 dark:bg-gray-800">
+        <section className="bg-white mt-20 dark:bg-gray-800">
             <div className="container px-6 py-8 mx-auto">
                 <div className="items-center lg:flex">
                     <div className="lg:w-1/2">

@@ -13,7 +13,9 @@ import SignUp from './components/Login/Signup/Signup';
 function App() {
   return (
     <div>
-      <Header></Header>
+      <div className='absolute w-full top-0'>
+        <Header></Header>
+      </div>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/checkout' element={<Checkout></Checkout>}></Route>
