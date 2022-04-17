@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import SocialLogin from '../SocialLogin/SocialLogin';
-
-// import auth from '../../../firebase.init';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 // import DoneIcon from '@mui/icons-material/Done';
 // import CloseIcon from '@mui/icons-material/Close';
 
@@ -11,15 +11,23 @@ const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState('')
 
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        creatingError,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
 
     const formSubmit = data => {
         const { name, email, password, confirmPassword } = data;
 
-        // if (password !== confirmPassword) {
-        //     setError("Password didn't match")
-        //     return;
-        // }
+        if (password !== confirmPassword) {
+            setError("Password didn't match")
+            return;
+        }
+
+        createUserWithEmailAndPassword(email, password)
     }
 
     return (
@@ -61,7 +69,7 @@ const Signup = () => {
                     <input {...register('confirmPassword', { required: true })} type="password"
                         className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                     {errors.confirmPassword && <p><small className="text-red-500">&diams; This Field is Required.</small></p>}
-                    {error && <p><small className="text-red-500">&diams; This Field is Required.</small></p>}
+                    {error && <p><small className="text-red-500">&diams; {error}</small></p>}
                 </div>
 
 
