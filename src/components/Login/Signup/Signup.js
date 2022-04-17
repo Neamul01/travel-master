@@ -3,16 +3,23 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import SocialLogin from '../SocialLogin/SocialLogin';
 
+// import auth from '../../../firebase.init';
+// import DoneIcon from '@mui/icons-material/Done';
+// import CloseIcon from '@mui/icons-material/Close';
+
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState('')
 
+
+
     const formSubmit = data => {
         const { name, email, password, confirmPassword } = data;
 
-        if (password !== confirmPassword) {
-            setError("Password didn't match")
-        }
+        // if (password !== confirmPassword) {
+        //     setError("Password didn't match")
+        //     return;
+        // }
     }
 
     return (
