@@ -22,8 +22,13 @@ const Login = () => {
         signinError,
     ] = useSignInWithEmailAndPassword(auth);
 
+
+
     if (user) {
         navigate(from, { replace: true })
+    }
+    if (loading) {
+        console.log('loading...')
     }
 
     const formSubmit = data => {

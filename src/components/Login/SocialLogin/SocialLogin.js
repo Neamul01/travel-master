@@ -17,6 +17,10 @@ const SocialLogin = () => {
         navigate(from, { replace: true })
     }
 
+    if (loading || googleLoading) {
+        console.log('loading')
+    }
+
     const handleGoogleSignin = () => {
         signInWithGoogle()
     }
