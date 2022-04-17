@@ -9,7 +9,7 @@ const Header = () => {
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                            <Link className="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" to="/">Tour Master</Link>
+                            <Link className="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" to="/">Travel Master</Link>
                         </div>
 
                         {/* <!-- Mobile menu button --> */}
