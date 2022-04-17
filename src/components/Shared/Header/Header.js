@@ -4,17 +4,12 @@ import { Link } from 'react-router-dom';
 const Header = () => {
 
     return (
-
-
-
         <nav className="bg-white shadow dark:bg-gray-800">
             <div className="container px-6 py-3 mx-auto">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                            <Link className="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" to="/">Brand</Link>
-
-
+                            <Link className="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" to="/">Tour Master</Link>
                         </div>
 
                         {/* <!-- Mobile menu button --> */}
@@ -31,13 +26,13 @@ const Header = () => {
                     <div className="items-center md:flex">
                         <div className="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
                             <Link className="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="/">Home</Link>
-                            <Link className="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="/">Blog</Link>
-                            <Link className="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="/">Compoents</Link>
-                            <Link className="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="/">Courses</Link>
+                            <Link className="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="/checkout">Checkout</Link>
+                            <Link className="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="blogs">Blogs</Link>
+                            <Link className="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="about">About</Link>
                         </div>
 
                         <div className="flex items-center py-2 -mx-1 md:mx-0">
-                            <Link className="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-blue-600 md:mx-2 md:w-auto" to="/">Login</Link>
+                            <Link className="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-blue-600 md:mx-2 md:w-auto" to="login">Login</Link>
 
                         </div>
                     </div>
