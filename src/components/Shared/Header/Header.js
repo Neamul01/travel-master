@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+    const [hidden, setHidden] = useState(true)
+
 
     return (
         <nav className="bg-[#9090905e] z-10 shadow-sm absolute w-full shadow-gray-400">
@@ -14,7 +16,7 @@ const Header = () => {
 
                         {/* <!-- Mobile menu button --> */}
                         <div className="flex md:hidden">
-                            <button type="button" className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                            <button onClick={() => setHidden(!hidden)} type="button" className="text-gray-900 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-900 dark:focus:text-gray-400" aria-label="toggle menu">
                                 <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
                                     <path fillRule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
                                 </svg>
@@ -23,7 +25,7 @@ const Header = () => {
                     </div>
 
                     {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
-                    <div className="items-center md:flex">
+                    <div hidden={hidden} className="items-center md:flex">
                         <div className="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
                             <Link className="my-1 text-sm leading-5 text-gray-900 font-semibold transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="/">Home</Link>
                             <Link className="my-1 text-sm leading-5 text-gray-900 font-semibold transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:mx-4 md:my-0" to="/checkout">Checkout</Link>
