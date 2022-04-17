@@ -32,7 +32,7 @@ const Header = () => {
                         </div>
 
                         <div className="flex items-center py-2 -mx-1 md:mx-0">
-                            <Link className="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-blue-600 md:mx-2 md:w-auto" to="login">Login</Link>
+                            <Link className="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform hover:bg-gray-500 rounded-md bg-blue-600 md:mx-2 md:w-auto" to="login">Login</Link>
 
                         </div>
                     </div>
