@@ -4,12 +4,17 @@ import { useForm } from 'react-hook-form'
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import auth from '../../../firebase.init';
+import Toast from '../../Shared/Toast/Toast';
 
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
+
+    const [success, setSuccess] = useState(false)
+    const [message, setMessage] = useState('')
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -50,9 +55,12 @@ const Login = () => {
     const handleResetPass = async () => {
         if (!email) {
             console.log('give email');
+            setSuccess(true)
+            setMessage('false')
             return
         }
-        await sendPasswordResetEmail(email);
+        setSuccess(false)
+        await sendPasswordResetEmail(email).then(setMessage('success'))
         console.log('reset pass sent')
     }
 
@@ -94,6 +102,9 @@ const Login = () => {
             <p className="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? <Link to={'/signup'}
                 className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Create One</Link>
             </p>
+            {
+                success ? <Toast message={message}></Toast> : ''
+            }
         </div>
     );
 };
