@@ -32,9 +32,6 @@ const Login = () => {
     );
 
 
-    if (user) {
-        navigate(from, { replace: true })
-    }
     if (loading) {
         console.log('loading...')
     }
@@ -54,6 +51,9 @@ const Login = () => {
         console.warn('sending');
     }
 
+    if (user) {
+        navigate(from, { replace: true })
+    }
 
     const handleResetPass = async () => {
         if (!email) {

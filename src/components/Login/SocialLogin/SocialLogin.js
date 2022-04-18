@@ -11,13 +11,9 @@ const SocialLogin = () => {
     const [signInWithFacebook, user, facebookLoading, facebookError] = useSignInWithFacebook(auth);
     const navigate = useNavigate();
     const location = useLocation();
-    const [error, setError] = useState('');
 
     const from = location.state?.from?.pathname || '/';
 
-    if (googleUser || user) {
-        navigate(from, { replace: true })
-    }
 
 
     let errorElement;
@@ -38,6 +34,10 @@ const SocialLogin = () => {
     const handleFacebookLonin = () => {
         signInWithFacebook()
     }
+    if (googleUser || user) {
+        navigate(from, { replace: true })
+    }
+
 
     return (
         <div>

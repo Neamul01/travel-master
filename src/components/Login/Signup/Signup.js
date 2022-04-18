@@ -23,12 +23,6 @@ const Signup = () => {
     const [sendEmailVerification, sending, varificationError] = useSendEmailVerification(auth);
     console.log(user)
 
-    if (user) {
-        return navigate(from, { replace: true })
-    }
-    if (loading) {
-        return <Loading></Loading>
-    }
 
 
     const formSubmit = async data => {
@@ -42,6 +36,14 @@ const Signup = () => {
         await createUserWithEmailAndPassword(email, password)
         await sendEmailVerification();
     }
+
+    if (user) {
+        return navigate(from, { replace: true })
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
+
 
     return (
         <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-24">
