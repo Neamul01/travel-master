@@ -1,8 +1,15 @@
 import React from 'react';
+import Snackbar from '@mui/material/Snackbar';
+
 
 const Blogs = () => {
+    const btn = () => {
+        return <Snackbar message='hello' />
+    }
     return (
         <div className='mt-24 px-10'>
+            <button onClick={btn} className=''>
+                hello</button>
             <div className='w-full bg-gray-100 rounded-sm p-16'>
                 <div className='bg-white px-16 py-16 rounded-lg'>
                     <h2 className="text-3xl text-blue-500 font-semibold before:content-['1.'] before:text-4xl before:text-gray-700"> Deference Between Authentication and Authorization.</h2>
@@ -20,7 +27,7 @@ const Blogs = () => {
 
                 <div className='bg-white px-16 pt-5 pb-10 rounded-lg'>
                     <h2 className='pt-1 text-3xl text-blue-500 font-semibold mt-12 before:content-["3."] before:text-4xl before:text-gray-700' > What other services does "Firebase" provide other then othenticetion.</h2>
-                    <p className='mt-4 ml-10'>
+                    <div className='mt-4 ml-10'>
                         <span className='text-lg'>Firebase provides a couple of things other then othentication. </span>
                         <ol type="1" className='mt-2'>
                             <li>1. Cloud Store</li>
@@ -30,7 +37,7 @@ const Blogs = () => {
                             <li>5. Cloud Messaging</li>
                             <li>6. A/B Testing</li>
                         </ol>
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

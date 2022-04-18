@@ -39,8 +39,8 @@ const SocialLogin = () => {
     const handleFacebookLonin = () => {
         return signInWithFacebook()
     }
-    console.log(googleError)
-    console.log(error)
+    // console.log(googleError)
+    // console.log(error)
 
     return (
         <div>

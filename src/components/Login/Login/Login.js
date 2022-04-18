@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import auth from '../../../firebase.init';
-// import DoneIcon from '@mui/icons-material/Done';
-// import CloseIcon from '@mui/icons-material/Close';
+
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+
 
     const from = location.state?.from?.pathname || '/';
 
@@ -21,6 +22,9 @@ const Login = () => {
         loading,
         signinError,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(
+        auth
+    );
 
 
 
@@ -33,15 +37,33 @@ const Login = () => {
 
     const formSubmit = data => {
         const { email, password } = data;
+        setEmail(email)
         console.log(email, password)
 
         signInWithEmailAndPassword(email, password)
     }
+    if (sending) {
+        console.warn('sending');
+        return;
+    }
+
+
+    const handleResetPass = async () => {
+        if (!email) {
+            console.log('give email');
+
+            return
+        }
+        await sendPasswordResetEmail(email);
+        console.log('reset pass sent')
+    }
+
     return (
         <div className="w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-24">
             <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Login</h1>
 
-            <form onSubmit={handleSubmit(formSubmit)} className="mt-6">
+
+            <form onSubmit={handleSubmit(formSubmit)} onBlur={e => setEmail(e.target.value)} className="mt-6">
                 <div>
                     <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">Email</label>
                     <input {...register("email", { required: true })} type="email"
@@ -52,7 +74,7 @@ const Login = () => {
                 <div className="mt-4">
                     <div className="flex items-center justify-between">
                         <label htmlFor="password" className="block text-sm text-gray-800 dark:text-gray-200">Password</label>
-                        <p className="cursor-pointer text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</p>
+                        <p onClick={handleResetPass} className="cursor-pointer text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</p>
                     </div>
 
                     <input {...register("password", { required: true })} type="password"

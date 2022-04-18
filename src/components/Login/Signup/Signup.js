@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-// import DoneIcon from '@mui/icons-material/Done';
-// import CloseIcon from '@mui/icons-material/Close';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState('')
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const [
         createUserWithEmailAndPassword,
@@ -17,6 +19,11 @@ const Signup = () => {
         loading,
         creatingError,
     ] = useCreateUserWithEmailAndPassword(auth);
+    console.log(user)
+
+    if (user) {
+        return navigate(from, { replace: true })
+    }
 
 
     const formSubmit = data => {
