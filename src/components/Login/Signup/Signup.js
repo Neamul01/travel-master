@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const Signup = () => {
@@ -19,6 +19,7 @@ const Signup = () => {
         loading,
         creatingError,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [sendEmailVerification, sending, varificationError] = useSendEmailVerification(auth);
     console.log(user)
 
     if (user) {
@@ -26,7 +27,7 @@ const Signup = () => {
     }
 
 
-    const formSubmit = data => {
+    const formSubmit = async data => {
         const { name, email, password, confirmPassword } = data;
 
         if (password !== confirmPassword) {
@@ -34,7 +35,8 @@ const Signup = () => {
             return;
         }
 
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password)
+        await sendEmailVerification();
     }
 
     return (

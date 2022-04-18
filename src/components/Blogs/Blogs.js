@@ -1,14 +1,10 @@
 import React from 'react';
-import Snackbar from '@mui/material/Snackbar';
 
 
 const Blogs = () => {
-    const btn = () => {
-        return <Snackbar message='hello' />
-    }
     return (
         <div className='mt-24 px-10'>
-            <button onClick={btn} className=''>
+            <button className=''>
                 hello</button>
             <div className='w-full bg-gray-100 rounded-sm p-16'>
                 <div className='bg-white px-16 py-16 rounded-lg'>
