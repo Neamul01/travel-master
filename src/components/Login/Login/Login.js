@@ -38,8 +38,9 @@ const Login = () => {
     if (loading) {
         console.log('loading...')
     }
-    if (error) {
-        return setError(error)
+    let allErrors;
+    if (signinError || resetError) {
+        allErrors = <p className='text-red-500'><small>{signinError?.message}{resetError?.message}</small></p>
     }
 
     const formSubmit = data => {
@@ -51,7 +52,6 @@ const Login = () => {
     }
     if (sending) {
         console.warn('sending');
-        return;
     }
 
 
@@ -61,9 +61,11 @@ const Login = () => {
             setSuccess(true)
             setMessage('false')
             return
+        } else {
+            setSuccess(false)
+            setMessage('success')
         }
-        setSuccess(false)
-        await sendPasswordResetEmail(email).then(setMessage('success'))
+        await sendPasswordResetEmail(email)
         console.log('reset pass sent')
     }
 
@@ -100,8 +102,9 @@ const Login = () => {
                 </div>
             </form>
 
-            <p><small>{error?.message}</small></p>
-
+            {
+                allErrors
+            }
             <div><SocialLogin></SocialLogin></div>
 
             <p className="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? <Link to={'/signup'}

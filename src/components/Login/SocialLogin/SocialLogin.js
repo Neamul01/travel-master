@@ -19,16 +19,13 @@ const SocialLogin = () => {
         navigate(from, { replace: true })
     }
 
-    if (googleError) {
-        setError(googleError)
-        console.log(error)
+
+    let errorElement;
+    if (googleError || facebookError) {
+        console.log(googleError?.message)
+        console.log(facebookError?.message)
+        errorElement = <p className='text-red-500'><small>{googleError?.message} {facebookError?.message}</small></p>
     }
-
-    // if (googleError || facebookError) {
-    //     console.log(googleError?.message)
-    //     console.log(facebookError?.message)
-
-    // }
 
     if (googleLoading || facebookLoading) {
         console.log('loading')
@@ -44,6 +41,7 @@ const SocialLogin = () => {
 
     return (
         <div>
+            {errorElement}
             <div className="flex items-center justify-between mt-4">
                 <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
