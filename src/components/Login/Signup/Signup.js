@@ -14,6 +14,7 @@ const Signup = () => {
 
     const from = location.state?.from?.pathname || '/';
 
+    // crwate use using email and pass 
     const [
         createUserWithEmailAndPassword,
         user,
@@ -24,7 +25,7 @@ const Signup = () => {
     console.log(user)
 
 
-
+    // submit the form and create user 
     const formSubmit = async data => {
         const { name, email, password, confirmPassword } = data;
 
@@ -98,6 +99,7 @@ const Signup = () => {
 
             <p><small>{error?.message}</small></p>
 
+            {/* social logins  */}
             <div><SocialLogin></SocialLogin></div>
 
             <p className="mt-8 text-xs font-light text-center text-gray-400"> Already have an account? <Link to={'/login'}

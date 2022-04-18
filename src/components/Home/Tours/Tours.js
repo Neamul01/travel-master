@@ -7,6 +7,7 @@ const Tours = () => {
     return (
 
         <section className="bg-gray-100 dark:bg-gray-900">
+
             <div className="h-[32rem] dark:bg-gray-800">
                 <div className="container px-6 py-10 mx-auto">
                     <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Latest Tours</h1>
@@ -27,6 +28,8 @@ const Tours = () => {
 
             <div className="container px-6 py-10 mx-auto -mt-72 sm:-mt-80 md:-mt-96 pointer">
                 <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-3">
+
+                    {/* section one  */}
                     <div className="flex flex-col  max-w-xs h-96 items-center p-4 border sm:p-6 rounded-xl dark:border-gray-700 relative  cursor-pointer"
                         style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.619)), url(${sundarban1})`, backgroundSize: 'cover' }}>
 
@@ -36,6 +39,8 @@ const Tours = () => {
                         </div>
                     </div>
 
+
+                    {/* section two  */}
                     <div className="flex flex-col  max-w-xs h-96 items-center p-4 border sm:p-6 rounded-xl dark:border-gray-700 relative  cursor-pointer"
                         style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.619)), url(${bandarban})`, backgroundSize: 'cover' }}>
 
@@ -45,6 +50,7 @@ const Tours = () => {
                         </div>
                     </div>
 
+                    {/* section three  */}
                     <div className="flex flex-col  max-w-xs h-96 items-center p-4 border sm:p-6 rounded-xl dark:border-gray-700 relative cursor-pointer"
                         style={{ backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.619)), url(${coxBazar})`, backgroundSize: 'cover' }}>
 

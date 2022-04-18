@@ -21,6 +21,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
+    // login using email pass 
     const [
         signInWithEmailAndPassword,
         user,
@@ -40,6 +41,7 @@ const Login = () => {
         allErrors = <p className='text-red-500'><small>{signinError?.message}{resetError?.message}</small></p>
     }
 
+    // submit the form and log in 
     const formSubmit = data => {
         const { email, password } = data;
         setEmail(email)
@@ -55,6 +57,7 @@ const Login = () => {
         navigate(from, { replace: true })
     }
 
+    // reset the pass 
     const handleResetPass = async () => {
         if (!email) {
             console.log('give email');
@@ -102,9 +105,11 @@ const Login = () => {
                 </div>
             </form>
 
+            {/* login errors or other errors */}
             {
                 allErrors
             }
+            {/* social icons and log ins  */}
             <div><SocialLogin></SocialLogin></div>
 
             <p className="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? <Link to={'/signup'}

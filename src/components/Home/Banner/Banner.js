@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import image from '../../../images/sundarban.jpg'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
@@ -13,8 +12,8 @@ const Banner = () => {
                     <div className="text-center">
 
                         <h1 className="text-2xl mt-10 mb-4 tracking-wide font-semibold text-white uppercase lg:text-5xl"
-                            style={{ lineHeight: '5rem' }}>Travel the most Beautiful places in Bangladesh <br /> with <span className="text-blue-400">Travel Master</span></h1>
-                        {/* <Link to={'/checkout'} className="w-full px-8 py-4 text-lg font-medium text-white uppercase transition-colors duration-200 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">see journey</Link> */}
+                            style={{ lineHeight: '5rem' }}>Travel the most Beautiful places in Bangladesh <br /> with <span className="text-blue-400">Travel Master</span>
+                        </h1>
                         <KeyboardArrowDownIcon className='text-white mt-0' style={{ fontSize: '4rem' }} />
 
                     </div>

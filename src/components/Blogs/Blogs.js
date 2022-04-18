@@ -4,9 +4,9 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div className='mt-24 px-10'>
-            <button className=''>
-                hello</button>
+
             <div className='w-full bg-gray-100 rounded-sm p-16'>
+                {/* question one  */}
                 <div className='bg-white px-16 py-16 rounded-lg'>
                     <h2 className="text-3xl text-blue-500 font-semibold before:content-['1.'] before:text-4xl before:text-gray-700"> Deference Between Authentication and Authorization.</h2>
                     <p className='mt-4 ml-10 pr-32'>
@@ -14,6 +14,7 @@ const Blogs = () => {
                     </p>
                 </div>
 
+                {/* question two  */}
                 <div className='bg-white px-16 pt-2 pb-14 rounded-lg my-4'>
                     <h2 className='pt-1 text-3xl text-blue-500 font-semibold mt-12 before:content-["2."] before:text-4xl before:text-gray-700' > Why are you using "Firebase"? What other options do you have to implement Authentication?</h2>
                     <p className='mt-4 ml-10'>
@@ -21,6 +22,7 @@ const Blogs = () => {
                     </p>
                 </div>
 
+                {/* question three  */}
                 <div className='bg-white px-16 pt-5 pb-10 rounded-lg'>
                     <h2 className='pt-1 text-3xl text-blue-500 font-semibold mt-12 before:content-["3."] before:text-4xl before:text-gray-700' > What other services does "Firebase" provide other then othenticetion.</h2>
                     <div className='mt-4 ml-10'>

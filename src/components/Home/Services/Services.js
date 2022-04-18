@@ -2,6 +2,8 @@ import React from 'react';
 import Service from './Service/Service';
 
 const Services = () => {
+
+    // datas 
     const serviceElements = [
         {
             id: 1,
