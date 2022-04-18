@@ -11,7 +11,9 @@ const RequireAuth = ({ children }) => {
 
     console.log(user)
     if (loading) {
-        return <Loading></Loading>
+        return <div className='mt-32 h-[80vh]'>
+            <Loading></Loading>
+        </div>
     }
 
     if (error) {

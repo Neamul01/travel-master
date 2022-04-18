@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -24,6 +25,9 @@ const Signup = () => {
 
     if (user) {
         return navigate(from, { replace: true })
+    }
+    if (loading) {
+        return <Loading></Loading>
     }
 
 
@@ -90,7 +94,9 @@ const Signup = () => {
                 </div>
             </form>
 
-            <SocialLogin></SocialLogin>
+            <p><small>{error?.message}</small></p>
+
+            <div><SocialLogin></SocialLogin></div>
 
             <p className="mt-8 text-xs font-light text-center text-gray-400"> Already have an account? <Link to={'/login'}
                 className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Login</Link>

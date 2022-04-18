@@ -38,6 +38,9 @@ const Login = () => {
     if (loading) {
         console.log('loading...')
     }
+    if (error) {
+        return setError(error)
+    }
 
     const formSubmit = data => {
         const { email, password } = data;
@@ -97,7 +100,9 @@ const Login = () => {
                 </div>
             </form>
 
-            <SocialLogin></SocialLogin>
+            <p><small>{error?.message}</small></p>
+
+            <div><SocialLogin></SocialLogin></div>
 
             <p className="mt-8 text-xs font-light text-center text-gray-400"> Don't have an account? <Link to={'/signup'}
                 className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Create One</Link>
