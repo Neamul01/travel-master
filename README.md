@@ -19,9 +19,10 @@ In the below I try to get a overview about this app and the dependancys using in
 1. React Hooks.
 2. React Firebase Hooks.
 3. React Hook Form.
-4. Firebase.
-5. Material UI.
-6. Framework:
+4. React Router.
+5. Firebase.
+6. Material UI.
+7. Framework:
 - Tailwind css.
-7. Meraki UI Tailwind CSS Components.
+8. Meraki UI Tailwind CSS Components.
 
